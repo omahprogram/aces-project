@@ -9,7 +9,7 @@ import Menu from '../components/Menu'
 const Login = () => {
 
 	const router = useRouter()
-	const { user, mutateUser } = useUser({});
+	const { mutateUser } = useUser({});
 	const [errorMsg, setErrorMsg] = useState('')
 	
   async function handleSubmit(e) {
