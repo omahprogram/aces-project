@@ -38,14 +38,9 @@ const Login = () => {
         <label className="font-semibold text-gray-900">WELCOME to </label>&nbsp;
         <label className="font-bold text-biru-vercel"> ACES</label>
       </div>
-      {!user?.isLoggedIn && (
         <div className="max-w-xs mx-auto -mt-48 h-screen flex content-center flex-wrap">
           <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
         </div>
-      )}
-      {user?.isLoggedIn && (
-        <Menu />
-      )}
     </Layout>
   )
 }
