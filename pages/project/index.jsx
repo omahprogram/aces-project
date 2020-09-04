@@ -6,6 +6,7 @@ import axios from 'axios';
 import useSWR, { mutate, trigger } from 'swr';
 import Menu from '../../components/Menu'
 import Project from '../../components/Project'
+import Caption from '../../components/Caption'
 import {ProjectAdd} from '../../components/ProjectAdd'
 import { useFormik } from 'formik';
 
@@ -28,10 +29,8 @@ const ProjectsPage = () => {
     <Layout>
       {user?.isLoggedIn && (
         <>
-        <div className="max-w-screen-sm mx-auto flex content-center flex-wrap mb-8 text-5xl justify-center">
-          <label className="font-semibold text-gray-900">Projects Page </label>&nbsp;
-        </div>
-        <Menu buttonClick={toggle.bind(this)}/>
+        <Caption caption='My Project' />
+        <Menu buttonClick={toggle.bind(this)} part='project'/>
         <div className="max-w-screen-sm mx-auto d-flex text-lg">
           <div style={{
             display: showAdd?"block":"none"
