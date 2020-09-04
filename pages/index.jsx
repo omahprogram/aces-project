@@ -5,6 +5,7 @@ import Form from '../components/Form'
 import fetchJson from '../lib/fetchJson'
 import { useRouter } from 'next/router'
 import Menu from '../components/Menu'
+import Caption from '../components/Caption'
 
 const Login = () => {
 
@@ -34,17 +35,19 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="max-w-screen-sm mx-auto flex content-center flex-wrap mb-8 text-5xl justify-center">
-        <label className="font-semibold text-gray-900">WELCOME to </label>&nbsp;
-        <label className="font-bold text-biru-vercel"> ACES</label>
-      </div>
       {!user?.isLoggedIn && (
-        <div className="max-w-xs mx-auto -mt-48 h-screen flex content-center flex-wrap">
-          <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
-        </div>
+        <>
+          <Caption caption='WELCOME to ACES' />
+          <div className="max-w-xs mx-auto -mt-48 h-screen flex content-center flex-wrap">
+            <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
+          </div>
+        </>
       )}
       {user?.isLoggedIn && (
-        <Menu />
+        <>
+          <Caption caption='Dashboard' />
+          <Menu part='dashboard'/>
+        </>
       )}
     </Layout>
   )
